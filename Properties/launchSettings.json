@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PAR.WinUI (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "PAR.WinUI (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
