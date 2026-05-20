@@ -19,6 +19,7 @@
   <ItemGroup>
     <None Remove="Assets\logo.ico" />
     <None Remove="Assets\logoPAR.png" />
+    <None Remove="Views\DashboardView.xaml" />
     <None Remove="Views\LoginWindow.xaml" />
   </ItemGroup>
 
@@ -46,12 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.1721" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260416003" />
+    <PackageReference Include="Dapper" Version="2.1.72" />
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WinUI" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.8" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.1839" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="2.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PAR.Core\PAR.Core.csproj" />
+    <ProjectReference Include="PAR.Core\PAR.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\logo.ico">
@@ -62,6 +68,11 @@
     <Content Update="Assets\logoPAR.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\DashboardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\LoginWindow.xaml">

@@ -1,0 +1,53 @@
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using PAR.Core.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace PAR.WinUI.Services
+{
+    public class FilterService : ObservableObject
+    {
+        public event Action OnFiltrosCambiados;
+
+        private int _sucursalId;
+        public int SucursalId
+        {
+            get => _sucursalId;
+            set { if (_sucursalId != value) { _sucursalId = value; OnPropertyChanged(); OnFiltrosCambiados?.Invoke(); } }
+        }
+
+        private DateTime _fechaInicio;
+        public DateTime FechaInicio
+        {
+            get => _fechaInicio;
+            set { if (_fechaInicio != value) { _fechaInicio = value; OnPropertyChanged(); OnFiltrosCambiados?.Invoke(); } }
+        }
+
+        private DateTime _fechaFin;
+        public DateTime FechaFin
+        {
+            get => _fechaFin;
+            set { if (_fechaFin != value) { _fechaFin = value; OnPropertyChanged(); OnFiltrosCambiados?.Invoke(); } }
+        }
+
+        private Dictionary<int, string> _listaSucursales;
+        public Dictionary<int, string> ListaSucursales
+        {
+            get => _listaSucursales;
+            set { _listaSucursales = value; OnPropertyChanged(); }
+        }
+        public FilterService(SucursalesService sucursalesService)
+        {
+            ListaSucursales = sucursalesService.CargarSucursales();
+
+            DateTime hoy = DateTime.Now;
+            FechaInicio = new DateTime(hoy.Year, hoy.Month, 1);
+            FechaFin = hoy;
+
+            if (ListaSucursales.Count > 0)
+                SucursalId = ListaSucursales.First().Key;
+        }
+    }
+}

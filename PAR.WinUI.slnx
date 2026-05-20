@@ -4,8 +4,8 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="../PAR.Api/PAR.Api.csproj" Id="b1216904-c42f-4807-a0b4-7452c9ccaef4" />
-  <Project Path="../PAR.Core/PAR.Core.csproj" />
+  <Project Path="PAR.Api/PAR.Api.csproj" />
+  <Project Path="PAR.Core/PAR.Core.csproj" />
   <Project Path="PAR.WinUI.csproj">
     <Platform Solution="*|ARM64" Project="ARM64" />
     <Platform Solution="*|x64" Project="x64" />
